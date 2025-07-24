@@ -4,8 +4,28 @@
 
 :root {
   --rockcore-green: #2d5a3d;
-  --rockcore-green-dark: #1e3a26;
-  --rockcore-green-light: #4a7c59;
+  --light-gray: #f8f9fa;
+  --header-height: 64px;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --radius: 0.5rem;
 }
 
 @layer base {
@@ -14,54 +34,28 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
 @layer components {
-  .shadow-card {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-white via-gray-50 to-gray-100;
+  }
+
+  .card-shadow {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
-  .shadow-card:hover {
+  .card-shadow:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-
-  .gradient-bg {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
-  }
-
-  .text-rockcore-green {
-    color: var(--rockcore-green);
-  }
-
-  .bg-rockcore-green {
-    background-color: var(--rockcore-green);
-  }
-
-  .border-rockcore-green {
-    border-color: var(--rockcore-green);
-  }
-
-  .hover\:bg-rockcore-green:hover {
-    background-color: var(--rockcore-green);
-  }
-
-  .hover\:text-rockcore-green:hover {
-    color: var(--rockcore-green);
-  }
-
-  .hover\:bg-green-800:hover {
-    background-color: var(--rockcore-green-dark);
-  }
-
-  .hover\:text-green-800:hover {
-    color: var(--rockcore-green-dark);
   }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 /* Custom scrollbar */
@@ -79,7 +73,17 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--rockcore-green-dark);
+  background: #1e3a26;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-rockcore-green ring-offset-2;
 }
 
 /* Animation classes */
@@ -94,50 +98,60 @@ html {
   }
 }
 
-.animate-fade-in-up {
+.animate-fadeInUp {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Focus styles */
-.focus\:ring-rockcore-green:focus {
-  --tw-ring-color: var(--rockcore-green);
+/* Loading animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-/* Button hover effects */
-.btn-primary {
-  @apply bg-rockcore-green text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-green-800 hover:shadow-lg transform hover:-translate-y-0.5;
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.btn-secondary {
-  @apply border-2 border-rockcore-green text-rockcore-green px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-rockcore-green hover:text-white;
-}
-
-/* Card hover effects */
-.card-hover {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-}
-
-/* Responsive text sizes */
+/* Responsive text */
 @media (max-width: 640px) {
-  .text-responsive-xl {
-    @apply text-2xl;
-  }
-  .text-responsive-2xl {
-    @apply text-3xl;
-  }
-  .text-responsive-3xl {
-    @apply text-4xl;
+  .text-responsive {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
   }
 }
 
-@media (min-width: 641px) {
-  .text-responsive-xl {
-    @apply text-xl;
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
   }
-  .text-responsive-2xl {
-    @apply text-2xl;
-  }
-  .text-responsive-3xl {
-    @apply text-3xl;
-  }
+}
+
+/* Custom utility classes */
+.text-rockcore-green {
+  color: var(--rockcore-green);
+}
+
+.bg-rockcore-green {
+  background-color: var(--rockcore-green);
+}
+
+.border-rockcore-green {
+  border-color: var(--rockcore-green);
+}
+
+.hover\:bg-rockcore-green:hover {
+  background-color: var(--rockcore-green);
+}
+
+.hover\:text-rockcore-green:hover {
+  color: var(--rockcore-green);
+}
+
+.hover\:bg-green-800:hover {
+  background-color: #1e3a26;
 }

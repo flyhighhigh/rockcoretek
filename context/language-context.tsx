@@ -16,84 +16,54 @@ const translations = {
     "nav.home": "Home",
     "nav.products": "Products",
     "nav.solutions": "Solutions",
-    "nav.about": "About",
+    "nav.about": "About Us",
     "nav.contact": "Contact",
 
+    // Common
+    "common.learnMore": "Learn More",
+    "common.viewDetails": "View Details",
+    "common.contactUs": "Contact Us",
+    "common.getQuote": "Get Quote",
+
     // Home page
-    "home.hero.title": "Industrial Computing Solutions for Mission-Critical Applications",
+    "home.hero.title": "Industrial Computing Solutions",
     "home.hero.subtitle":
-      "RockCore delivers rugged, reliable industrial computers, AI boxes, edge devices, and 360° cameras designed for the harshest environments.",
-    "home.hero.cta1": "Explore Products",
-    "home.hero.cta2": "View Solutions",
-    "home.stats.clients": "Global Clients",
-    "home.stats.experience": "Years Experience",
-    "home.stats.countries": "Countries Served",
-    "home.stats.uptime": "System Uptime",
+      "Leading provider of industrial computers, AI boxes, edge devices, and 360° camera solutions for mission-critical applications across industries.",
+    "home.hero.cta": "Explore Solutions",
+    "home.products.title": "Our Product Portfolio",
+    "home.products.subtitle": "Comprehensive range of industrial computing solutions for every application.",
+    "home.solutions.title": "Industry Solutions",
+    "home.solutions.subtitle": "Tailored solutions for manufacturing, transportation, energy, and smart cities.",
 
     // Products
     "products.industrial.title": "Industrial Computers",
-    "products.industrial.desc":
-      "Rugged, fanless industrial computers designed for harsh environments with wide temperature range and vibration resistance.",
-    "products.ai.title": "AI Computing Boxes",
-    "products.ai.desc":
-      "High-performance AI inference systems with GPU acceleration for machine learning and deep learning applications.",
-    "products.edge.title": "Edge Computing Devices",
-    "products.edge.desc": "Compact, low-power edge computing solutions for IoT applications and distributed computing.",
-    "products.camera.title": "360° Surveillance Cameras",
-    "products.camera.desc":
-      "Advanced 360° panoramic cameras with AI analytics for comprehensive surveillance and monitoring.",
+    "products.industrial.desc": "Rugged computing platforms for factory automation and industrial control.",
+    "products.ai.title": "AI Boxes",
+    "products.ai.desc": "Dedicated AI inference systems for machine learning and deep learning applications.",
+    "products.edge.title": "Edge Devices",
+    "products.edge.desc": "Compact computing solutions for IoT and edge computing applications.",
+    "products.camera.title": "360° Cameras",
+    "products.camera.desc": "Advanced surveillance and monitoring solutions with panoramic vision capabilities.",
 
     // Solutions
-    "solutions.fpga.title": "FPGA Solutions",
-    "solutions.fpga.desc":
-      "Custom FPGA development and implementation services for high-performance computing applications.",
-    "solutions.fpga.cad": "CAD/CAM Solutions",
-    "solutions.fpga.aoi": "AOI Solutions",
-    "solutions.fpga.alignment": "Target Alignment Solutions",
-    "solutions.fpga.design": "FPGA Design Services",
-    "solutions.fpga.tsn": "Time-Sensitive Networking (TSN)",
-
-    "solutions.manufacturing.title": "Smart Manufacturing",
-    "solutions.manufacturing.desc":
-      "Comprehensive smart manufacturing solutions with AI-powered automation and monitoring.",
-    "solutions.manufacturing.inspection": "360° AI Inspection",
-    "solutions.manufacturing.energy": "Energy Saving Solutions",
-
-    "solutions.transportation.title": "Transportation & Logistics",
-    "solutions.energy.title": "Energy & Utilities",
+    "solutions.manufacturing.title": "Manufacturing",
+    "solutions.transportation.title": "Transportation",
+    "solutions.energy.title": "Energy",
     "solutions.cities.title": "Smart Cities",
-
-    // About
-    "about.mission.title": "Our Mission",
-    "about.mission.desc":
-      "To empower industries with innovative FPGA and edge AI computing solutions that deliver superior performance, reliability, and efficiency.",
-    "about.vision.title": "Our Vision",
-    "about.vision.desc":
-      "To be the global leader in edge AI and FPGA solutions, enabling the next generation of intelligent industrial applications.",
-    "about.values.algorithm": "Algorithm IP Development",
-    "about.values.algorithm.desc":
-      "We specialize in converting complex algorithms into optimized IP cores for FPGA and edge computing platforms.",
-    "about.values.edge": "Edge AI Expertise",
-    "about.values.edge.desc":
-      "Our edge AI solutions provide real-time processing with low latency, reducing dependency on cloud connectivity.",
-    "about.values.innovation": "Innovation",
-    "about.values.innovation.desc":
-      "Continuously advancing FPGA and edge computing technologies to solve complex industrial challenges.",
 
     // Contact
     "contact.title": "Contact Us",
-    "contact.subtitle": "Get in touch with our experts to discuss your industrial computing needs.",
+    "contact.subtitle":
+      "Ready to discuss your industrial computing needs? Our experts are here to help you find the perfect solution.",
+    "contact.info.title": "Get in Touch",
+    "contact.info.subtitle":
+      "Whether you need technical support, product information, or custom solutions, our team is ready to assist you.",
     "contact.form.name": "Full Name",
     "contact.form.email": "Email Address",
     "contact.form.company": "Company",
+    "contact.form.phone": "Phone Number",
     "contact.form.message": "Message",
     "contact.form.submit": "Send Message",
-
-    // Common
-    "common.learn_more": "Learn More",
-    "common.get_quote": "Get Quote",
-    "common.contact_us": "Contact Us",
-    "common.view_all": "View All",
   },
   zh: {
     // Navigation
@@ -103,70 +73,48 @@ const translations = {
     "nav.about": "關於我們",
     "nav.contact": "聯絡我們",
 
+    // Common
+    "common.learnMore": "了解更多",
+    "common.viewDetails": "查看詳情",
+    "common.contactUs": "聯絡我們",
+    "common.getQuote": "獲取報價",
+
     // Home page
-    "home.hero.title": "工業級電腦解決方案 專為關鍵任務應用設計",
-    "home.hero.subtitle": "磐石科技提供堅固可靠的工業電腦、AI運算盒、邊緣運算設備及360°攝影機，專為最嚴苛環境設計。",
-    "home.hero.cta1": "探索產品",
-    "home.hero.cta2": "查看解決方案",
-    "home.stats.clients": "全球客戶",
-    "home.stats.experience": "年經驗",
-    "home.stats.countries": "服務國家",
-    "home.stats.uptime": "系統正常運行時間",
+    "home.hero.title": "工業電腦解決方案",
+    "home.hero.subtitle": "領先的工業電腦、AI盒子、邊緣設備和360°攝影機解決方案供應商，為各行業提供關鍵任務應用。",
+    "home.hero.cta": "探索解決方案",
+    "home.products.title": "產品組合",
+    "home.products.subtitle": "為每個應用提供全面的工業計算解決方案。",
+    "home.solutions.title": "行業解決方案",
+    "home.solutions.subtitle": "為製造業、運輸業、能源業和智慧城市量身定制的解決方案。",
 
     // Products
     "products.industrial.title": "工業電腦",
-    "products.industrial.desc": "堅固耐用的無風扇工業電腦，專為嚴苛環境設計，具備寬溫度範圍和抗震動能力。",
-    "products.ai.title": "AI運算盒",
-    "products.ai.desc": "高效能AI推論系統，配備GPU加速，適用於機器學習和深度學習應用。",
-    "products.edge.title": "邊緣運算設備",
-    "products.edge.desc": "小型化、低功耗邊緣運算解決方案，適用於物聯網應用和分散式運算。",
-    "products.camera.title": "360°監控攝影機",
-    "products.camera.desc": "先進的360°全景攝影機，具備AI分析功能，提供全方位監控解決方案。",
+    "products.industrial.desc": "用於工廠自動化和工業控制的堅固計算平台。",
+    "products.ai.title": "AI盒子",
+    "products.ai.desc": "專用於機器學習和深度學習應用的AI推理系統。",
+    "products.edge.title": "邊緣設備",
+    "products.edge.desc": "用於物聯網和邊緣計算應用的緊湊型計算解決方案。",
+    "products.camera.title": "360°攝影機",
+    "products.camera.desc": "具有全景視覺功能的先進監控和監視解決方案。",
 
     // Solutions
-    "solutions.fpga.title": "FPGA解決方案",
-    "solutions.fpga.desc": "客製化FPGA開發與實作服務，適用於高效能運算應用。",
-    "solutions.fpga.cad": "CAD/CAM解決方案",
-    "solutions.fpga.aoi": "AOI解決方案",
-    "solutions.fpga.alignment": "標靶對位解決方案",
-    "solutions.fpga.design": "FPGA設計服務",
-    "solutions.fpga.tsn": "時間敏感網路(TSN)",
-
-    "solutions.manufacturing.title": "智慧製造",
-    "solutions.manufacturing.desc": "全方位智慧製造解決方案，結合AI自動化與監控技術。",
-    "solutions.manufacturing.inspection": "360° AI巡檢",
-    "solutions.manufacturing.energy": "節能解決方案",
-
-    "solutions.transportation.title": "運輸物流",
-    "solutions.energy.title": "能源公用事業",
+    "solutions.manufacturing.title": "製造業",
+    "solutions.transportation.title": "運輸業",
+    "solutions.energy.title": "能源業",
     "solutions.cities.title": "智慧城市",
-
-    // About
-    "about.mission.title": "我們的使命",
-    "about.mission.desc": "以創新的FPGA和邊緣AI運算解決方案賦能產業，提供卓越的效能、可靠性和效率。",
-    "about.vision.title": "我們的願景",
-    "about.vision.desc": "成為邊緣AI和FPGA解決方案的全球領導者，推動下一代智慧工業應用發展。",
-    "about.values.algorithm": "演算法IP化",
-    "about.values.algorithm.desc": "我們專精於將複雜演算法轉換為最佳化的IP核心，適用於FPGA和邊緣運算平台。",
-    "about.values.edge": "邊緣AI專業",
-    "about.values.edge.desc": "我們的邊緣AI解決方案提供即時處理和低延遲，減少對雲端連接的依賴。",
-    "about.values.innovation": "創新",
-    "about.values.innovation.desc": "持續推進FPGA和邊緣運算技術，解決複雜的工業挑戰。",
 
     // Contact
     "contact.title": "聯絡我們",
-    "contact.subtitle": "與我們的專家聯繫，討論您的工業運算需求。",
+    "contact.subtitle": "準備討論您的工業計算需求？我們的專家隨時為您提供完美的解決方案。",
+    "contact.info.title": "聯繫方式",
+    "contact.info.subtitle": "無論您需要技術支援、產品資訊或客製化解決方案，我們的團隊都準備為您提供協助。",
     "contact.form.name": "姓名",
     "contact.form.email": "電子郵件",
     "contact.form.company": "公司",
+    "contact.form.phone": "電話號碼",
     "contact.form.message": "訊息",
     "contact.form.submit": "發送訊息",
-
-    // Common
-    "common.learn_more": "了解更多",
-    "common.get_quote": "取得報價",
-    "common.contact_us": "聯絡我們",
-    "common.view_all": "查看全部",
   },
 }
 
@@ -176,7 +124,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
 
   const t = (key: string): string => {
-    return translations[language][key as keyof (typeof translations)["en"]] || key
+    return translations[language][key as keyof (typeof translations)[typeof language]] || key
   }
 
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
