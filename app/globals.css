@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rockcore-green: #2d5a3d;
+  --rockcore-green-dark: #1e3a26;
+  --rockcore-green-light: #4a7c59;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  }
+
+  .text-rockcore-green {
+    color: var(--rockcore-green);
+  }
+
+  .bg-rockcore-green {
+    background-color: var(--rockcore-green);
+  }
+
+  .border-rockcore-green {
+    border-color: var(--rockcore-green);
+  }
+
+  .hover\:bg-rockcore-green:hover {
+    background-color: var(--rockcore-green);
+  }
+
+  .hover\:text-rockcore-green:hover {
+    color: var(--rockcore-green);
+  }
+
+  .hover\:bg-green-800:hover {
+    background-color: var(--rockcore-green-dark);
+  }
+
+  .hover\:text-green-800:hover {
+    color: var(--rockcore-green-dark);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rockcore-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rockcore-green-dark);
+}
+
+/* Animation classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Focus styles */
+.focus\:ring-rockcore-green:focus {
+  --tw-ring-color: var(--rockcore-green);
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-rockcore-green text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-green-800 hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply border-2 border-rockcore-green text-rockcore-green px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-rockcore-green hover:text-white;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Responsive text sizes */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    @apply text-2xl;
+  }
+  .text-responsive-2xl {
+    @apply text-3xl;
+  }
+  .text-responsive-3xl {
+    @apply text-4xl;
+  }
+}
+
+@media (min-width: 641px) {
+  .text-responsive-xl {
+    @apply text-xl;
+  }
+  .text-responsive-2xl {
+    @apply text-2xl;
+  }
+  .text-responsive-3xl {
+    @apply text-3xl;
+  }
+}

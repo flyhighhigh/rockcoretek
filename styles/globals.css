@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BaseHub Theme CSS Custom Properties */
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* shadcn/ui HSL Variables - 白色主題 */
+    --background: 0 0% 100%; /* 白色 */
+    --foreground: 222.2 84% 4.9%; /* 深灰色文字 */
+    --card: 0 0% 100%; /* 白色卡片 */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 76% 36%; /* RockCore 綠色 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 29% 97%; /* 米色 */
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%; /* 淺灰色 */
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142 76% 36%; /* 綠色強調 */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%; /* 淺灰邊框 */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+    --header-height: 80px;
+    --rockcore-green: #2d5a3d;
+    --light-gray: #f8f9fa;
+    --beige: #f5f5dc;
+    --dark-gray: #374151;
+
+    /* 文字渲染優化 */
+    text-rendering: geometricprecision;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 29% 97%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+/* Theme-specific color overrides */
+:root {
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+
+  ::selection {
+    background-color: var(--rockcore-green);
+  }
+
+  *:focus-visible {
+    outline-color: var(--rockcore-green);
+  }
+}
+
+:root:not(html.dark) {
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+
+  ::selection {
+    background-color: var(--rockcore-green);
+  }
+
+  *:focus-visible {
+    outline-color: var(--rockcore-green);
+  }
+}
+
+/* Utility classes */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: white;
+  color: #374151;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for industrial theme */
+.gradient-green {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation for hero section */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #059669;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* 深綠色強調樣式 */
+.bg-primary-green {
+  background-color: #047857; /* 深綠色 */
+}
+
+.text-primary-green {
+  color: #047857;
+}
+
+.border-primary-green {
+  border-color: #047857;
+}
+
+.hover-primary-green:hover {
+  background-color: #065f46;
+}
+
+/* 淺綠色背景用於區塊分隔 */
+.bg-light-green {
+  background-color: #f0fdf4;
+}
+
+/* 漸變效果 */
+.gradient-green {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 自定義顏色類別 */
+.bg-beige {
+  background-color: var(--beige); /* 米色背景 */
+}
+
+.bg-light-gray {
+  background-color: var(--light-gray); /* 淺灰色背景 */
+}
+
+.text-rockcore-green {
+  color: var(--rockcore-green); /* RockCore 綠色 */
+}
+
+.bg-rockcore-green {
+  background-color: var(--rockcore-green);
+}
+
+.hover-rockcore-green:hover {
+  background-color: var(--rockcore-green);
+}
+
+.border-rockcore-green {
+  border-color: var(--rockcore-green);
+}
+
+/* 漸變效果 */
+.gradient-beige-white {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.gradient-gray-white {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* 陰影效果 */
+.shadow-soft {
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #f8f9fa 0%, #f5f5dc 100%);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
