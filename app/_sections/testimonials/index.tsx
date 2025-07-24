@@ -1,7 +1,7 @@
 import { Section } from "../../../common/section-wrapper";
 import { Heading } from "../../../common/heading";
 import { fragmentOn } from "basehub";
-import { headingFragment, quoteFragment } from "../../../lib/basehub/fragments";
+import { headingFragment, quoteFragment } from "../../../lib/types/static-types";
 
 import { Slider } from "./slider";
 

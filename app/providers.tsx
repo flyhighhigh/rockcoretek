@@ -1,12 +1,12 @@
 import { ThemeProvider } from "next-themes";
-import { BaseHubThemeProvider } from "../context/basehub-theme-provider";
+import { StaticThemeProvider } from "../context/theme-provider";
 import { TooltipProvider } from "../common/tooltip";
-import { BaseHubTheme } from "../context/basehub-theme-provider";
+import { StaticTheme, defaultTheme } from "../lib/data/static-content";
 
-export function Providers({ children, theme }: { children: React.ReactNode; theme: BaseHubTheme }) {
+export function Providers({ children, theme = defaultTheme }: { children: React.ReactNode; theme?: StaticTheme }) {
   return (
     <ThemeProvider enableSystem attribute="class" defaultTheme="system">
-      <BaseHubThemeProvider theme={theme} />
+      <StaticThemeProvider theme={theme} />
       <TooltipProvider>{children}</TooltipProvider>
     </ThemeProvider>
   );

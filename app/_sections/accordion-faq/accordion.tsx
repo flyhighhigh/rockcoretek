@@ -4,7 +4,7 @@ import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { type Faq } from "../../_sections/faq";
 import { sendEvent } from "basehub/events";
-import { GeneralEvents } from "../../../lib/basehub/fragments";
+import { GeneralEvents } from "../../../lib/types/static-types";
 
 export function Accordion({
   items,

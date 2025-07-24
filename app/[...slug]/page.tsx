@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GeneralEvents } from "../../lib/basehub/fragments";
+import { GeneralEvents } from "../../lib/types/static-types";
 import { basehub, fragmentOn } from "basehub";
 import { AccordionFaq } from "../_sections/accordion-faq";
 import { BigFeature, bigFeatureFragment } from "../_sections/features/big-feature";
@@ -25,7 +25,6 @@ import {
   settingsLogoLiteFragment,
   SettingsLogoLiteFragment,
 } from "../../components/form-components";
-import "../../basehub.config";
 
 export const dynamic = "force-static";
 export const revalidate = 30;

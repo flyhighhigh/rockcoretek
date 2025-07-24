@@ -13,7 +13,7 @@ import {
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
 import { $button, ButtonLink } from "../common/button";
-import type { HeaderFragment, HeaderLiksFragment } from "../lib/basehub/fragments";
+import type { HeaderFragment, HeaderLiksFragment } from "../lib/types/static-types";
 import { useToggleState } from "../hooks/use-toggle-state";
 import { useHasRendered } from "../hooks/use-has-rendered";
 

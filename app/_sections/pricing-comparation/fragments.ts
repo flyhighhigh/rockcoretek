@@ -1,5 +1,5 @@
 import { fragmentOn } from "basehub";
-import { headingFragment } from "../../../lib/basehub/fragments";
+import { headingFragment } from "../../../lib/types/static-types";
 
 export const planFragment = fragmentOn("PricingPlanComponent", {
   _id: true,

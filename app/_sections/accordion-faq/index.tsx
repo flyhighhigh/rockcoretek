@@ -4,7 +4,7 @@ import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
 
 import { Accordion } from "./accordion";
-import { GeneralEvents } from "../../../lib/basehub/fragments";
+import { GeneralEvents } from "../../../lib/types/static-types";
 
 export function AccordionFaq(faq: Faq & { eventsKey: GeneralEvents["ingestKey"] }) {
   return (

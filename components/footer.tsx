@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 
-export function Footer({ footer, logo }: any) {
+export function Footer() {
   const { t } = useLanguage()
 
   const footerLinks = {

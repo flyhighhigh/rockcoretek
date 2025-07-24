@@ -2,8 +2,7 @@ import { BaseHubImage } from "basehub/next-image";
 
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
-import { fragmentOn } from "basehub";
-import { darkLightImageFragment, headingFragment } from "../../../../lib/basehub/fragments";
+import { fragmentOn, darkLightImageFragment, headingFragment } from "../../../../lib/types/static-types";
 import { DarkLightImage } from "../../../../common/dark-light-image";
 
 export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {

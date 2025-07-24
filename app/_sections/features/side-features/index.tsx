@@ -3,9 +3,9 @@ import { BaseHubImage } from "basehub/next-image";
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
 import { fragmentOn } from "basehub";
-import { headingFragment } from "../../../../lib/basehub/fragments";
+import { headingFragment } from "../../../../lib/types/static-types";
 import { TrackedButtonLink } from "../../../../components/tracked-button";
-import { GeneralEvents } from "../../../../lib/basehub/fragments";
+import { GeneralEvents } from "../../../../lib/types/static-types";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
   featuresSideBySideList: {

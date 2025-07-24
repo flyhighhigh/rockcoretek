@@ -6,7 +6,7 @@ import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
 import { ButtonLink } from "../../../common/button";
 import { fragmentOn } from "basehub";
-import { headingFragment } from "../../../lib/basehub/fragments";
+import { headingFragment } from "../../../lib/types/static-types";
 
 import s from "./pricing.module.css";
 

@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react"
 import { LanguageSwitcher } from "./language-switcher"
 import { useLanguage } from "@/context/language-context"
 
-export function Header({ logo, header }: any) {
+export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { t } = useLanguage()
 

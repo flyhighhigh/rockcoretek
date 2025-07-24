@@ -1,6 +1,6 @@
-import { buttonFragment } from "../lib/basehub/fragments";
-import { fragmentOn } from "basehub";
-import { RichText, type RichTextProps } from "basehub/react-rich-text";
+import { buttonFragment } from "../lib/types/static-types";
+import { fragmentOn } from "../lib/types/static-types";
+import { SimpleRichText } from "./simple-rich-text";
 import Image from "next/image";
 import Link, { type LinkProps } from "next/link";
 
@@ -59,16 +59,8 @@ export function FormLayout({
   );
 }
 
-export function RichTextFormWrapper({ children }: RichTextProps) {
-  return (
-    <RichText
-      components={{
-        a: CustomAnchor,
-      }}
-    >
-      {children}
-    </RichText>
-  );
+export function RichTextFormWrapper({ content }: { content: string }) {
+  return <SimpleRichText content={content} />;
 }
 
 function CustomAnchor({

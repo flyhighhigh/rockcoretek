@@ -1,7 +1,7 @@
 import NextForm from "next/form";
 import { Section } from "../../../common/section-wrapper";
 import { fragmentOn } from "basehub";
-import { buttonFragment } from "../../../lib/basehub/fragments";
+import { buttonFragment } from "../../../lib/types/static-types";
 import {
   FormLayout,
   RichTextFormWrapper,

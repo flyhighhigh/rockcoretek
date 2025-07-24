@@ -2,12 +2,12 @@ import { BaseHubImage } from "basehub/next-image";
 import { basehub, fragmentOn } from "basehub";
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
-import { darkLightImageFragment, headingFragment } from "../../../../lib/basehub/fragments";
+import { darkLightImageFragment, headingFragment } from "../../../../lib/types/static-types";
 import clsx from "clsx";
 import { DarkLightImage } from "../../../../common/dark-light-image";
 import { TrackedButtonLink } from "../../../../components/tracked-button";
 import s from "./hero.module.css";
-import { GeneralEvents } from "../../../../lib/basehub/fragments";
+import { GeneralEvents } from "../../../../lib/types/static-types";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,

@@ -1,5 +1,5 @@
 import { fragmentOn } from "basehub";
-import { authorFragment, optimizedImageFragment } from "../../../lib/basehub/fragments";
+import { authorFragment, optimizedImageFragment } from "../../../lib/types/static-types";
 
 export const changelogListFragment = fragmentOn("ChangelogPostComponent", {
   _id: true,

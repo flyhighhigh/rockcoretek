@@ -1,4 +1,4 @@
-import { type DarkLightImageFragment } from "../lib/basehub/fragments";
+import { type DarkLightImageFragment } from "../lib/types/static-types";
 import clsx from "clsx";
 import { BaseHubImage } from "basehub/next-image";
 import type { ImageProps } from "next/image";

@@ -1,6 +1,6 @@
 import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
-import { headingFragment } from "../../../lib/basehub/fragments";
+import { headingFragment } from "../../../lib/types/static-types";
 import { fragmentOn } from "basehub";
 
 export const faqFragment = fragmentOn("FaqComponent", {

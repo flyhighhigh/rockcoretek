@@ -1,7 +1,7 @@
 import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
 import { fragmentOn } from "basehub";
-import { headingFragment, quoteFragment } from "../../../lib/basehub/fragments";
+import { headingFragment, quoteFragment } from "../../../lib/types/static-types";
 
 import { TestimonialsGridClient } from "./testimonials-list";
 

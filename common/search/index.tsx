@@ -6,7 +6,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import * as Popover from "@radix-ui/react-popover";
 
-import { type AuthorFragment } from "../../lib/basehub/fragments";
+import { type AuthorFragment } from "../../lib/types/static-types";
 import { getArticleSlugFromSlugPath } from "../../lib/basehub/utils";
 
 import { Avatar } from "../../common/avatar";

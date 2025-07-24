@@ -5,7 +5,7 @@ import { RichText } from "basehub/react-rich-text";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 import { Heading } from "../../../common/heading";
-import { authorFragment, optimizedImageFragment } from "../../../lib/basehub/fragments";
+import { authorFragment, optimizedImageFragment } from "../../../lib/types/static-types";
 import { CodeSnippet } from "../../../components/code-snippet";
 import { richTextBaseComponents, richTextClasses } from "../../../components/rich-text";
 import { ButtonLink } from "../../../common/button";
@@ -14,7 +14,6 @@ import { Author } from "../../../common/avatar";
 import { basehub } from "basehub";
 import { formatDate } from "../../_utils/dates";
 import { PageView } from "../../../components/page-view";
-import "../../../basehub.config";
 
 export const dynamic = "force-static";
 export const revalidate = 30;

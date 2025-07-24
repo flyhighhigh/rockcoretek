@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "../../../common/avatars-group";
 import { Author } from "../../../common/avatar";
-import { authorFragment, darkLightImageFragment } from "../../../lib/basehub/fragments";
+import { authorFragment, darkLightImageFragment } from "../../../lib/types/static-types";
 import { formatDate } from "../../_utils/dates";
 import { DarkLightImage } from "../../../common/dark-light-image";
 import { ButtonLink } from "../../../common/button";

@@ -5,8 +5,8 @@ import { fragmentOn } from "basehub";
 
 import s from "./callout-1.module.css";
 import { TrackedButtonLink } from "../../../components/tracked-button";
-import { buttonFragment } from "../../../lib/basehub/fragments";
-import { GeneralEvents } from "../../../lib/basehub/fragments";
+import { buttonFragment } from "../../../lib/types/static-types";
+import { GeneralEvents } from "../../../lib/types/static-types";
 
 export const calloutFragment = fragmentOn("CalloutComponent", {
   _analyticsKey: true,

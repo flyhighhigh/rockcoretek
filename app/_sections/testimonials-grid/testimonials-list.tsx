@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { Button } from "../../../common/button";
-import type { QuoteFragment } from "../../../lib/basehub/fragments";
+import type { QuoteFragment } from "../../../lib/types/static-types";
 import { cx } from "class-variance-authority";
 import { BaseHubImage } from "basehub/next-image";
 

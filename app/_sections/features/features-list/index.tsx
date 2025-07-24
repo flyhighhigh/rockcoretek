@@ -3,7 +3,7 @@ import { CheckIcon } from "@radix-ui/react-icons";
 import { Section } from "../../../../common/section-wrapper";
 import { Heading } from "../../../../common/heading";
 import { fragmentOn } from "basehub";
-import { darkLightImageFragment } from "../../../../lib/basehub/fragments";
+import { darkLightImageFragment } from "../../../../lib/types/static-types";
 import { DarkLightImage } from "../../../../common/dark-light-image";
 
 export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {

@@ -1,8 +1,8 @@
 import { fragmentOn } from "basehub";
 import { Section } from "../../../common/section-wrapper";
 import { TrackedButtonLink } from "../../../components/tracked-button";
-import { buttonFragment } from "../../../lib/basehub/fragments";
-import { GeneralEvents } from "../../../lib/basehub/fragments";
+import { buttonFragment } from "../../../lib/types/static-types";
+import { GeneralEvents } from "../../../lib/types/static-types";
 
 export const calloutv2Fragment = fragmentOn("CalloutV2Component", {
   title: true,

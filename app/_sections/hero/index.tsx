@@ -3,9 +3,9 @@ import clsx from "clsx";
 import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "../../../common/avatars-group";
 import { Avatar } from "../../../common/avatar";
-import { avatarFragment } from "../../../lib/basehub/fragments";
+import { avatarFragment } from "../../../lib/types/static-types";
 import { TrackedButtonLink } from "../../../components/tracked-button";
-import { GeneralEvents } from "../../../lib/basehub/fragments";
+import { GeneralEvents } from "../../../lib/types/static-types";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   _analyticsKey: true,

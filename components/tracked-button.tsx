@@ -1,6 +1,6 @@
 "use client";
 
-import { GeneralEvents } from "../lib/basehub/fragments";
+import { GeneralEvents } from "../lib/types/static-types";
 import { sendEvent } from "basehub/events";
 import { Button, ButtonLink } from "../common/button";
 
