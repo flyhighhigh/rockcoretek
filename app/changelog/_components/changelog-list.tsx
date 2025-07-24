@@ -1,7 +1,8 @@
 "use client";
+
+import Image from 'next/image';
 import * as React from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { BaseHubImage } from "basehub/next-image";
 import clsx from "clsx";
 
 import { ButtonLink } from "../../../common/button";
@@ -91,14 +92,14 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
             </div>
           </div>
           <article className="mb-16 flex flex-col gap-6">
-            <BaseHubImage
+            <Image
               alt={post._title}
-              blurDataURL={post.image.blurDataURL}
+              blurDataURL={post.image?.blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="}
               className="rounded-lg border border-[--border] dark:border-[--dark-border]"
               height={480}
               placeholder="blur"
               priority={idx === 0}
-              src={post.image.url}
+              src={post.image?.url || "/placeholder.jpg"}
               width={647}
             />
             <div className="flex flex-col gap-1">
@@ -106,22 +107,22 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                 <h2 className="text-xl font-medium">{post._title}</h2>
               </ButtonLink>
               <p className="text-sm text-[--text-secondary] dark:text-[--dark-text-secondary] md:text-base">
-                {post.excerpt}
+                {post.excerpt || "No description available"}
               </p>
             </div>
             <footer className="flex items-center justify-between">
-              {post.authors.length > 1 ? (
+              {post.authors && post.authors.length > 1 ? (
                 <AvatarsGroup animate>
                   {post.authors.map((author) => (
                     <Author key={author._id} {...author} />
                   ))}
                 </AvatarsGroup>
-              ) : post.authors[0] ? (
+              ) : post.authors && post.authors[0] ? (
                 <div className="flex items-center gap-2 rounded-full">
-                  <BaseHubImage
+                  <Image
                     alt={post.authors[0]._title}
                     height={24}
-                    src={post.authors[0].image.url}
+                    src={post.authors[0].image?.url || "/placeholder-user.jpg"}
                     width={24}
                   />
                   <p className="text-sm text-[--text-tertiary] dark:text-[--dark-text-tertiary]">

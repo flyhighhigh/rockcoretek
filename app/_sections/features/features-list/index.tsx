@@ -1,30 +1,14 @@
+import Image from 'next/image';
 import { CheckIcon } from "@radix-ui/react-icons";
 
 import { Section } from "../../../../common/section-wrapper";
 import { Heading } from "../../../../common/heading";
-import { fragmentOn } from "basehub";
 import { darkLightImageFragment } from "../../../../lib/types/static-types";
 import { DarkLightImage } from "../../../../common/dark-light-image";
 
-export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {
-  _title: true,
-  description: true,
-  image: darkLightImageFragment,
-  characteristics: {
-    items: { _title: true },
-  },
-});
+export const featureCardFragment = {};
 
-export const featureCardsComponent = fragmentOn("FeaturesCardsComponent", {
-  heading: {
-    subtitle: true,
-    tag: true,
-    title: true,
-  },
-  featuresCardsList: {
-    items: featureCardFragment,
-  },
-});
+export const featureCardsComponent = {};
 
 type FeatureCard = fragmentOn.infer<typeof featureCardsComponent>;
 

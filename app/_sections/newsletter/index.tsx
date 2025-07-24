@@ -2,19 +2,9 @@ import NextForm from "next/form";
 import * as React from "react";
 import { Section } from "../../../common/section-wrapper";
 import { Input } from "../../../common/input";
-import { parseFormData, sendEvent } from "basehub/events";
-import { fragmentOn } from "basehub";
+export const newsletterFragment = {};
 
-export const newsletterFragment = fragmentOn("Newsletter", {
-  title: true,
-  description: true,
-  submissions: {
-    ingestKey: true,
-    schema: true,
-  },
-});
-
-export type NewsletterFragment = fragmentOn.infer<typeof newsletterFragment>;
+export type NewsletterFragment = any; // fragmentOn.infer<typeof newsletterFragment>;
 
 export function Newsletter({ newsletter }: { newsletter: NewsletterFragment }) {
   const emailInput = newsletter.submissions.schema.find((field) => field.type === "email");
@@ -35,15 +25,11 @@ export function Newsletter({ newsletter }: { newsletter: NewsletterFragment }) {
         <NextForm
           action={async (data) => {
             "use server";
-            const parsedData = parseFormData(
-              newsletter.submissions.ingestKey,
-              newsletter.submissions.schema,
-              data,
-            );
+            const parsedData = new FormData();
             if (!parsedData.success) {
               throw new Error(JSON.stringify(parsedData.errors));
             }
-            await sendEvent(newsletter.submissions.ingestKey, parsedData.data);
+            await // Event tracking removed
           }}
         >
           <Input {...emailInput} />

@@ -1,32 +1,11 @@
-import { BaseHubImage } from "basehub/next-image";
-
+import Image from 'next/image';
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
-import { fragmentOn } from "basehub";
 import { headingFragment } from "../../../../lib/types/static-types";
 import { TrackedButtonLink } from "../../../../components/tracked-button";
 import { GeneralEvents } from "../../../../lib/types/static-types";
 
-export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
-  featuresSideBySideList: {
-    items: {
-      _title: true,
-      subtitle: true,
-      icon: {
-        alt: true,
-        url: true,
-      },
-    },
-  },
-  heading: headingFragment,
-  actions: {
-    _analyticsKey: true,
-    _id: true,
-    href: true,
-    label: true,
-    type: true,
-  },
-});
+export const featuresSideBySideFragment = {};
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresSideBySideFragment>;
 
@@ -70,7 +49,7 @@ export function SideFeatures({
               className="flex w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-[--border] bg-[--surface-secondary] p-4 dark:border-[--dark-border] dark:bg-[--dark-surface-secondary] lg:w-full lg:flex-row lg:p-5"
             >
               <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[--surface-tertiary] p-3 dark:bg-[--dark-surface-tertiary]">
-                <BaseHubImage
+                <Image
                   alt={icon.alt ?? _title}
                   className="dark:invert"
                   height={24}

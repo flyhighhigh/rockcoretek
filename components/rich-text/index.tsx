@@ -1,8 +1,6 @@
-import { RichText, type RichTextProps } from "basehub/react-rich-text";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { cva } from "class-variance-authority";
 
-import { fragmentOn } from "basehub";
 import s from "./rich-text.module.css";
 import Image from "next/image";
 import clsx from "clsx";
@@ -23,7 +21,7 @@ export const richTextClasses = clsx(
 );
 
 // @ts-expect-error Code won't match props
-export const richTextBaseComponents: RichTextProps["components"] = {
+export const richTextBaseComponents: any = {
   code: ({ children }) => (
     <Code isInline={true} code="">
       {children}
@@ -31,8 +29,8 @@ export const richTextBaseComponents: RichTextProps["components"] = {
   ),
   pre: Code,
   b: ({ children }) => <strong>{children}</strong>,
-  img: (props) => <RichTextImage {...props} />,
-  video: (props) => <RichTextVideo {...props} />,
+  img: (props) => <div></div>,
+  video: (props) => <div></div>,
 };
 
 function Code({
@@ -56,14 +54,9 @@ function Code({
     );
 }
 
-export const FaqItemComponentFragment = fragmentOn("FaqItemComponent", {
-  _id: true,
-  _idPath: true,
-  _title: true,
-  answer: true,
-});
+export const FaqItemComponentFragment = {};
 
-type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment>;
+type FaqItemComponentRichText = any; // fragmentOn.infer<typeof FaqItemComponentFragment>;
 
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
@@ -79,21 +72,9 @@ export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichTex
   );
 }
 
-export const richTextCalloutComponentFragment = fragmentOn("RichTextCalloutComponent", {
-  _title: true,
-  type: true,
-  _id: true,
-  size: true,
-  content: {
-    json: {
-      content: true,
-    },
-  },
-  __typename: true,
-  _idPath: true,
-});
+export const richTextCalloutComponentFragment = {};
 
-type RichTextCalloutComponentFragment = fragmentOn.infer<typeof richTextCalloutComponentFragment>;
+type RichTextCalloutComponentFragment = any; // fragmentOn.infer<typeof richTextCalloutComponentFragment>;
 
 const $richTextCallout = cva(
   "gap-2 border border-[--accent-500-40] bg-[--accent-500-5] p-4 pl-3 rounded-xl",
@@ -120,7 +101,7 @@ export function RichTextCalloutComponent({
       return (
         <article className={$richTextCallout({ size })} id={_title}>
           <div className={richTextClasses}>
-            <RichText components={richTextBaseComponents}>{content?.json.content}</RichText>
+            <div>{content?.json.content}</div>
           </div>
         </article>
       );
@@ -142,7 +123,7 @@ export function RichTextCalloutComponent({
             </svg>
           </div>
           <div className={clsx(richTextClasses)}>
-            <RichText components={richTextBaseComponents}>{content?.json.content}</RichText>
+            <div>{content?.json.content}</div>
           </div>
         </article>
       );

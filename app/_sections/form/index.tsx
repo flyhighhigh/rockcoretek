@@ -1,6 +1,5 @@
 import NextForm from "next/form";
 import { Section } from "../../../common/section-wrapper";
-import { fragmentOn } from "basehub";
 import { buttonFragment } from "../../../lib/types/static-types";
 import {
   FormLayout,
@@ -10,23 +9,10 @@ import {
 import { Button } from "../../../common/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { LabeledInput, LabeledTextarea, LabeledWrapper } from "../../../components/labeled-input";
-import { sendEvent, parseFormData } from "basehub/events";
 import { Select } from "../../../components/select";
 
-export const formFragment = fragmentOn("FormComponent", {
-  title: true,
-  subtitle: {
-    json: {
-      content: true,
-    },
-  },
-  cta: buttonFragment,
-  submissions: {
-    ingestKey: true,
-    schema: true,
-  },
-});
-type Form = fragmentOn.infer<typeof formFragment>;
+export const formFragment = {};
+type Form = any; // fragmentOn.infer<typeof formFragment>;
 
 export function Form(props: Form & { settingsLogoLite: SettingsLogoLiteFragment }) {
   return (
@@ -44,19 +30,11 @@ export function Form(props: Form & { settingsLogoLite: SettingsLogoLiteFragment 
           className="flex flex-col gap-3"
           action={async (data) => {
             "use server";
-            const parsedData = parseFormData(
-              props.submissions.ingestKey,
-              props.submissions.schema,
-              data,
-            );
+            const parsedData = new FormData();
             if (!parsedData.success) {
               throw new Error(JSON.stringify(parsedData.errors));
             }
-            await sendEvent(
-              props.submissions.ingestKey,
-              // @ts-expect-error -- basehub events are typed based on the schema, but this Form component should be generic
-              parsedData.data,
-            );
+            // await // Event tracking removed
           }}
         >
           {props.submissions.schema.map((field) => {

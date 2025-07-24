@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { type DarkLightImageFragment } from "../lib/types/static-types";
 import clsx from "clsx";
-import { BaseHubImage } from "basehub/next-image";
 import type { ImageProps } from "next/image";
 
 type DarkLightImageProps = DarkLightImageFragment &
@@ -22,7 +22,7 @@ export function DarkLightImage({
   return (
     <>
       {dark ? (
-        <BaseHubImage
+        <Image
           alt={dark.alt ?? alt ?? ""}
           className={clsx("hidden dark:block", className)}
           height={height ?? dark.height}
@@ -37,7 +37,7 @@ export function DarkLightImage({
             : {})}
         />
       ) : null}
-      <BaseHubImage
+      <Image
         alt={light.alt ?? alt ?? ""}
         className={clsx(dark && "dark:hidden", className)}
         height={height ?? light.height}

@@ -1,25 +1,10 @@
-import { BaseHubImage } from "basehub/next-image";
-
+import Image from 'next/image';
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
 import { fragmentOn, darkLightImageFragment, headingFragment } from "../../../../lib/types/static-types";
 import { DarkLightImage } from "../../../../common/dark-light-image";
 
-export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
-  _analyticsKey: true,
-  featuresBigImageList: {
-    items: {
-      _title: true,
-      description: true,
-      icon: {
-        alt: true,
-        url: true,
-      },
-    },
-  },
-  heading: headingFragment,
-  image: darkLightImageFragment,
-});
+export const bigFeatureFragment = {};
 
 type BigFeature = fragmentOn.infer<typeof bigFeatureFragment>;
 
@@ -39,7 +24,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeature)
         {featuresBigImageList.items.map(({ _title, description, icon }) => (
           <article key={_title} className="flex flex-col gap-4">
             <figure className="flex size-9 items-center justify-center rounded-full border border-[--border] bg-[--surface-secondary] p-2 dark:border-[--dark-border] dark:bg-[--dark-surface-secondary]">
-              <BaseHubImage
+              <Image
                 alt={icon.alt ?? _title}
                 className="dark:invert"
                 height={18}

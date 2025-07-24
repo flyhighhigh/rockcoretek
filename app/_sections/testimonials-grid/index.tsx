@@ -1,14 +1,10 @@
 import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
-import { fragmentOn } from "basehub";
 import { headingFragment, quoteFragment } from "../../../lib/types/static-types";
 
 import { TestimonialsGridClient } from "./testimonials-list";
 
-export const testimonialsGridFragment = fragmentOn("TestimonialsGridComponent", {
-  heading: headingFragment,
-  quotes: quoteFragment,
-});
+export const testimonialsGridFragment = {};
 
 type TestimonialsGrid = fragmentOn.infer<typeof testimonialsGridFragment>;
 

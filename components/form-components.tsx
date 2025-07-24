@@ -13,7 +13,7 @@ export const formWrapperFragment = fragmentOn("FormWrapperComponent", {
   },
   cta: buttonFragment,
 });
-export type FormWrapperFragment = fragmentOn.infer<typeof formWrapperFragment>;
+export type FormWrapperFragment = any; // fragmentOn.infer<typeof formWrapperFragment>;
 export const settingsLogoLiteFragment = fragmentOn("Settings", {
   logoLite: {
     url: true,
@@ -21,7 +21,7 @@ export const settingsLogoLiteFragment = fragmentOn("Settings", {
     height: true,
   },
 });
-export type SettingsLogoLiteFragment = fragmentOn.infer<typeof settingsLogoLiteFragment>;
+export type SettingsLogoLiteFragment = any; // fragmentOn.infer<typeof settingsLogoLiteFragment>;
 
 export function FormLayout({
   children,

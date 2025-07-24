@@ -7,6 +7,13 @@ import { Avatar } from "../../../common/avatar";
 import { SimpleRichText } from "../../../components/simple-rich-text";
 import { formatDate } from "../../_utils/dates";
 import { staticBlogPosts } from "../../../lib/data/static-content";
+import { authorFragment, darkLightImageFragment } from "../../../lib/types/static-types";
+import { FaqItemComponentFragment, richTextCalloutComponentFragment } from "../../../components/rich-text";
+import { codeSnippetFragment } from "../../../components/code-snippet";
+import { DarkLightImage } from "../../../common/dark-light-image";
+import { richTextClasses } from "../../../components/rich-text";
+import { cx } from "class-variance-authority";
+import { PageView } from "../../../components/page-view";
 
 export const dynamic = "force-static";
 export const revalidate = 30;
@@ -17,8 +24,9 @@ export const generateStaticParams = async () => {
   }));
 };
 
-export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata | undefined> => {
-  const post = staticBlogPosts.find(p => p._slug === params.slug);
+export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata | undefined> => {
+  const { slug } = await params;
+  const post = staticBlogPosts.find(p => p._slug === slug);
   
   if (!post) return undefined;
 
@@ -28,8 +36,9 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
   };
 };
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = staticBlogPosts.find(p => p._slug === params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = staticBlogPosts.find(p => p._slug === slug);
 
   if (!post) {
     notFound();
@@ -71,173 +80,5 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     </Section>
   );
 }
-        },
-      },
-    },
-  });
 
-  return data.site.blog.posts.items.map((post) => {
-    return {
-      slug: post._slug,
-    };
-  });
-};
 
-export const generateMetadata = async ({
-  params: _params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata | undefined> => {
-  const { slug } = await _params;
-  const data = await basehub().query({
-    site: {
-      settings: {
-        metadata: {
-          titleTemplate: true,
-          sitename: true,
-        },
-      },
-      blog: {
-        posts: {
-          __args: {
-            filter: {
-              _sys_slug: { eq: slug },
-            },
-            first: 1,
-          },
-          items: {
-            ogImage: { url: true },
-            _id: true,
-            _title: true,
-            description: true,
-          },
-        },
-      },
-    },
-  });
-
-  const post = data.site.blog.posts.items[0];
-
-  if (!post) return undefined;
-  const images = [{ url: post.ogImage.url }];
-
-  return {
-    title: post._title,
-    description: post.description,
-    openGraph: {
-      images,
-      type: "article",
-    },
-    twitter: {
-      images,
-      card: "summary_large_image",
-      site: data.site.settings.metadata.sitename,
-    },
-  };
-};
-
-export default async function BlogPage({ params: _params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await _params;
-  const {
-    site: {
-      generalEvents,
-      blog: { posts },
-    },
-  } = await basehub().query({
-    site: {
-      generalEvents: { ingestKey: true },
-      blog: {
-        posts: {
-          __args: {
-            filter: {
-              _sys_slug: {
-                eq: slug,
-              },
-            },
-            first: 1,
-          },
-          items: {
-            _title: true,
-            description: true,
-            authors: authorFragment,
-            publishedAt: true,
-            image: darkLightImageFragment,
-            categories: true,
-            body: {
-              json: {
-                __typename: true,
-                blocks: {
-                  __typename: true,
-                  on_FaqItemComponent: FaqItemComponentFragment,
-                  on_RichTextCalloutComponent: richTextCalloutComponentFragment,
-                  on_CodeSnippetComponent: codeSnippetFragment,
-                },
-                content: 1,
-                toc: 1,
-              },
-            },
-          },
-        },
-      },
-    },
-  });
-
-  const blogpost = posts.items.at(0);
-
-  if (!blogpost) return notFound();
-
-  return (
-    <>
-      <PageView ingestKey={generalEvents.ingestKey} />
-      <Section>
-        <Heading subtitle={blogpost.description}>
-          <h1>{blogpost._title}</h1>
-        </Heading>
-        <div className="flex flex-col items-center justify-center gap-3">
-          <div className="flex max-w-screen-lg items-center justify-center gap-12 text-base">
-            {blogpost.authors.map((author) => (
-              <figure key={author._id} className="flex items-center gap-2">
-                <Avatar key={author._id} {...author.image} alt="" className="!size-11" />
-                {author._title}
-              </figure>
-            ))}
-          </div>
-          <div className="flex divide-x divide-[--border] text-sm font-normal text-[--text-tertiary] dark:divide-[--dark-border] dark:text-[--dark-text-tertiary]">
-            <p className="pr-2">{formatDate(blogpost.publishedAt)}</p>
-            <span className="pl-2">
-              {blogpost.categories.map((category) => (
-                <span key={category} className="mr-1 capitalize">
-                  {category}
-                </span>
-              ))}
-            </span>
-          </div>
-        </div>
-      </Section>
-      <DarkLightImage
-        {...blogpost.image}
-        priority
-        withPlaceholder
-        className="h-full max-h-[720px] w-full object-cover"
-        style={{ aspectRatio: blogpost.image.light.aspectRatio }}
-      />
-      <Section>
-        <div
-          className={cx(richTextClasses, "[&>p:first-child]:text-2xl [&>p:first-child]:font-light")}
-        >
-          <RichText
-            blocks={blogpost.body.json.blocks}
-            components={{
-              ...richTextBaseComponents,
-              FaqItemComponent: FaqRichtextComponent,
-              RichTextCalloutComponent: RichTextCalloutComponent,
-              CodeSnippetComponent: CodeSnippet,
-            }}
-          >
-            {blogpost.body.json.content}
-          </RichText>
-        </div>
-      </Section>
-    </>
-  );
-}

@@ -1,18 +1,7 @@
 import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
 import { headingFragment } from "../../../lib/types/static-types";
-import { fragmentOn } from "basehub";
-
-export const faqFragment = fragmentOn("FaqComponent", {
-  heading: headingFragment,
-  questions: {
-    items: {
-      _analyticsKey: true,
-      _title: true,
-      answer: true,
-    },
-  },
-});
+export const faqFragment = {};
 
 export type Faq = fragmentOn.infer<typeof faqFragment>;
 

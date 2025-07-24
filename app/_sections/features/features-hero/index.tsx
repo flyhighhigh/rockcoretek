@@ -1,5 +1,4 @@
-import { BaseHubImage } from "basehub/next-image";
-import { basehub, fragmentOn } from "basehub";
+import Image from 'next/image';
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
 import { darkLightImageFragment, headingFragment } from "../../../../lib/types/static-types";
@@ -9,18 +8,7 @@ import { TrackedButtonLink } from "../../../../components/tracked-button";
 import s from "./hero.module.css";
 import { GeneralEvents } from "../../../../lib/types/static-types";
 
-export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
-  _analyticsKey: true,
-  heroLayout: true,
-  heading: headingFragment,
-  image: darkLightImageFragment,
-  actions: {
-    _id: true,
-    href: true,
-    label: true,
-    type: true,
-  },
-});
+export const featureHeroFragment = {};
 
 type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
 
@@ -174,7 +162,8 @@ async function LogoLite() {
     site: {
       settings: { logoLite },
     },
-  } = await basehub().query({
+  // Static data - basehub dependency removed
+  } = {
     site: {
       settings: {
         logoLite: {
@@ -185,10 +174,10 @@ async function LogoLite() {
         },
       },
     },
-  });
+  };
 
   return (
-    <BaseHubImage
+    <Image
       priority
       alt={logoLite.alt ?? "Logo"}
       className="size-20"

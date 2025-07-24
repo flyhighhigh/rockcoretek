@@ -1,25 +1,16 @@
 import { siteUrl } from "../../../lib/constants";
-import { basehub } from "basehub";
-
 export async function GET() {
-  const data = await basehub().query({
+  // Static data - basehub dependency removed
+  const data = {
     site: {
       blog: {
-        mainTitle: true,
+        mainTitle: "Blog",
         posts: {
-          __args: {
-            orderBy: "publishedAt__DESC",
-          },
-          items: {
-            _title: true,
-            _slug: true,
-            description: true,
-            publishedAt: true,
-          },
-        },
-      },
-    },
-  });
+          items: []
+        }
+      }
+    }
+  };
 
   const feed = `<?xml version="1.0" encoding="UTF-8" ?>
       <rss version="2.0">

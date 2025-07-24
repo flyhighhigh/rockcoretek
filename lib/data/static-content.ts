@@ -140,6 +140,12 @@ export const staticChangelogPosts = [
     _title: "Product Update v2.1.0",
     _slug: "product-update-v2-1-0",
     publishedAt: "2024-01-20T09:00:00Z",
+    excerpt: "Enhanced AI processing capabilities and improved thermal management",
+    image: {
+      url: "/placeholder.jpg",
+      blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+    },
+    authors: [staticAuthors[0]],
     content: `## New Features
 - Enhanced AI processing capabilities
 - Improved thermal management

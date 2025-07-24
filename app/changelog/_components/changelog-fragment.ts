@@ -1,14 +1,6 @@
-import { fragmentOn } from "basehub";
+import Image from 'next/image';
 import { authorFragment, optimizedImageFragment } from "../../../lib/types/static-types";
 
-export const changelogListFragment = fragmentOn("ChangelogPostComponent", {
-  _id: true,
-  _title: true,
-  image: optimizedImageFragment,
-  authors: authorFragment,
-  excerpt: true,
-  _slug: true,
-  publishedAt: true,
-});
+export const changelogListFragment = {};
 
-export type ChangelogListFragment = fragmentOn.infer<typeof changelogListFragment>;
+export type ChangelogListFragment = any; // fragmentOn.infer<typeof changelogListFragment>;

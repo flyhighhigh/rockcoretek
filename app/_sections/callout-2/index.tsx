@@ -1,15 +1,9 @@
-import { fragmentOn } from "basehub";
 import { Section } from "../../../common/section-wrapper";
 import { TrackedButtonLink } from "../../../components/tracked-button";
 import { buttonFragment } from "../../../lib/types/static-types";
 import { GeneralEvents } from "../../../lib/types/static-types";
 
-export const calloutv2Fragment = fragmentOn("CalloutV2Component", {
-  title: true,
-  subtitle: true,
-  _analyticsKey: true,
-  actions: buttonFragment,
-});
+export const calloutv2Fragment = {};
 type Callout2 = fragmentOn.infer<typeof calloutv2Fragment>;
 
 export function Callout2(callout: Callout2 & { eventsKey: GeneralEvents["ingestKey"] }) {

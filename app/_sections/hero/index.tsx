@@ -1,32 +1,12 @@
 import clsx from "clsx";
 
-import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "../../../common/avatars-group";
 import { Avatar } from "../../../common/avatar";
 import { avatarFragment } from "../../../lib/types/static-types";
 import { TrackedButtonLink } from "../../../components/tracked-button";
 import { GeneralEvents } from "../../../lib/types/static-types";
 
-export const heroFragment = fragmentOn("HeroComponent", {
-  _analyticsKey: true,
-  customerSatisfactionBanner: {
-    text: true,
-    avatars: {
-      items: {
-        _id: true,
-        avatar: avatarFragment,
-      },
-    },
-  },
-  title: true,
-  subtitle: true,
-  actions: {
-    _id: true,
-    href: true,
-    label: true,
-    type: true,
-  },
-});
+export const heroFragment = {};
 type Hero = fragmentOn.infer<typeof heroFragment>;
 
 export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {

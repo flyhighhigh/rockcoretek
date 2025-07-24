@@ -1,7 +1,6 @@
+import Image from 'next/image';
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { BaseHubImage } from "basehub/next-image";
-import { RichText } from "basehub/react-rich-text";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 import { Heading } from "../../../common/heading";
@@ -11,7 +10,6 @@ import { richTextBaseComponents, richTextClasses } from "../../../components/ric
 import { ButtonLink } from "../../../common/button";
 import { AvatarsGroup } from "../../../common/avatars-group";
 import { Author } from "../../../common/avatar";
-import { basehub } from "basehub";
 import { formatDate } from "../../_utils/dates";
 import { PageView } from "../../../components/page-view";
 
@@ -25,30 +23,16 @@ interface ChangelogPageParams {
 }
 
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: "no-store" }).query({
-    site: {
-      changelog: {
-        posts: {
-          items: {
-            _slug: true,
-          },
-        },
-      },
-    },
-  });
-
-  return data.site.changelog.posts.items.map((post) => {
-    return {
-      slug: post._slug,
-    };
-  });
+  // Return empty array for now since we don't have static changelog data
+  return [];
 };
 
 export const generateMetadata = async ({
   params: _params,
 }: ChangelogPageParams): Promise<Metadata | undefined> => {
   const params = await _params;
-  const data = await basehub().query({
+  // Static data - basehub dependency removed
+  const data = {
     site: {
       settings: {
         metadata: {
@@ -73,7 +57,7 @@ export const generateMetadata = async ({
         },
       },
     },
-  });
+  };
 
   const post = data.site.changelog.posts.items[0];
 
@@ -103,65 +87,29 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
     },
     allPosts,
   ] = await Promise.all([
-    basehub().query({
+    // Static data - basehub dependency removed
+    Promise.resolve({
       site: {
-        generalEvents: { ingestKey: true },
+        generalEvents: { ingestKey: "static" },
         changelog: {
-          goBackText: true,
+          goBackText: "Back to changelog",
           posts: {
-            __args: {
-              filter: {
-                _sys_slug: { eq: params.slug },
-              },
-              first: 1,
-            },
-            items: {
-              _analyticsKey: true,
-              _title: true,
-              excerpt: true,
-              publishedAt: true,
-              _slug: true,
-              image: optimizedImageFragment,
-              authors: authorFragment,
-              body: {
-                json: {
-                  content: true,
-                  blocks: {
-                    __typename: true,
-                    on_CodeSnippetComponent: {
-                      _id: true,
-                      _title: true,
-                      code: {
-                        code: true,
-                        language: true,
-                        allowedLanguages: true,
-                      },
-                    },
-                  },
-                  __typename: true,
-                },
-              },
-            },
+            items: []
           },
-          socialLinksTitle: true,
-          socialLinks: { icon: { url: true }, url: true, _title: true, _id: true },
-        },
-      },
+          socialLinksTitle: "Share",
+          socialLinks: []
+        }
+      }
     }),
-    basehub().query({
+    // Static data - basehub dependency removed
+    Promise.resolve({
       site: {
         changelog: {
           posts: {
-            items: {
-              _slug: true,
-              _title: true,
-            },
-            __args: {
-              orderBy: "publishedAt__DESC",
-            },
-          },
-        },
-      },
+            items: []
+          }
+        }
+      }
     }),
   ]);
 
@@ -204,7 +152,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
                   href={link.url}
                   target="_blank"
                 >
-                  <BaseHubImage
+                  <Image
                     priority
                     alt={link._title}
                     height={18}
@@ -218,7 +166,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
         </div>
       </div>
       <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pb-20 pt-16">
-        <BaseHubImage
+        <Image
           priority
           alt={post.image.alt ?? post._title}
           blurDataURL={post.image.blurDataURL}
@@ -233,12 +181,9 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
           {post.excerpt}
         </p>
         <div className={richTextClasses}>
-          <RichText
-            blocks={post.body.json.blocks}
-            components={{ ...richTextBaseComponents, CodeSnippetComponent: CodeSnippet }}
-          >
+          <div>
             {post.body.json.content}
-          </RichText>
+          </div>
         </div>
         <div className="flex items-center justify-between">
           {post.authors.length > 1 ? (

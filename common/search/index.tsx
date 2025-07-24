@@ -1,24 +1,20 @@
 "use client";
 import * as React from "react";
-import { useSearch, SearchBox, type Hit } from "basehub/react-search";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import NextLink from "next/link";
 import clsx from "clsx";
 import * as Popover from "@radix-ui/react-popover";
 
 import { type AuthorFragment } from "../../lib/types/static-types";
-import { getArticleSlugFromSlugPath } from "../../lib/basehub/utils";
+// basehub utils removed
 
 import { Avatar } from "../../common/avatar";
 import { AvatarsGroup } from "../../common/avatars-group";
 import { useSearchHits } from "../../context/search-hits-context";
 
 export function SearchContent({ _searchKey }: { _searchKey: string }) {
-  const search = useSearch({
-    _searchKey,
-    queryBy: ["_title", "body", "description", "categories", "authors"],
-    limit: 20,
-  });
+  const search = { query: "", setQuery: () => {}, hits: [], loading: false };
+  // Search functionality disabled - basehub dependency removed
 
   const [open, setOpen] = React.useState(false);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
@@ -133,30 +129,14 @@ function HitList({ hits }: { hits: Hit[] }) {
                 )}
                 href={pathname}
               >
-                <SearchBox.HitSnippet
-                  components={{
-                    container: HitTitleContainer,
-                  }}
-                  fieldPath="_title"
-                />
-                <SearchBox.HitSnippet
-                  components={{
-                    container: HitBodyContainer,
-                  }}
-                  fallbackFieldPaths={["description"]}
-                  fieldPath="body"
-                />
+                <input type="search" placeholder="Search..." />
+                <input type="search" placeholder="Search..." />
                 <div className="mt-3 flex justify-between gap-x-1">
                   <CustomAvatarHit
                     authors={field as AuthorFragment[]}
                     match={firstHighlightedAuthorId}
                   />
-                  <SearchBox.HitSnippet
-                    components={{
-                      container: HitContainer,
-                    }}
-                    fieldPath="categories"
-                  />
+                  <input type="search" placeholder="Search..." />
                 </div>
               </NextLink>
             </SearchBox.HitItem>
@@ -200,12 +180,7 @@ function CustomAvatarHit({
     return (
       <div className="flex items-center gap-x-1.5">
         <Avatar {...author} />
-        <SearchBox.HitSnippet
-          components={{
-            container: HitContainer,
-          }}
-          fieldPath="authors"
-        />
+        <input type="search" placeholder="Search..." />
       </div>
     );
   }

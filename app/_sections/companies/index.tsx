@@ -1,21 +1,10 @@
-import { BaseHubImage } from "basehub/next-image";
+import Image from 'next/image';
 import clsx from "clsx";
 
 import { Section } from "../../../common/section-wrapper";
-import { fragmentOn } from "basehub";
-
 import s from "./companies.module.css";
 
-export const companiesFragment = fragmentOn("CompaniesComponent", {
-  subtitle: true,
-  companies: {
-    _title: true,
-    url: true,
-    image: {
-      url: true,
-    },
-  },
-});
+export const companiesFragment = {};
 
 type Companies = fragmentOn.infer<typeof companiesFragment>;
 
@@ -36,7 +25,7 @@ export function Companies(props: Companies) {
               key={company.image?.url ?? company._title}
               className="flex h-16 items-center px-2 py-3 lg:p-4"
             >
-              <BaseHubImage
+              <Image
                 alt={company._title}
                 className="w-24 lg:w-32"
                 height={20}

@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import Link from "next/link";
 import clsx from "clsx";
 
-import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "../../../common/avatars-group";
 import { Author } from "../../../common/avatar";
 import { authorFragment, darkLightImageFragment } from "../../../lib/types/static-types";
@@ -10,18 +10,9 @@ import { DarkLightImage } from "../../../common/dark-light-image";
 import { ButtonLink } from "../../../common/button";
 import { SimpleTooltip } from "../../../common/tooltip";
 
-export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
-  _id: true,
-  _title: true,
-  _slug: true,
-  description: true,
-  publishedAt: true,
-  authors: authorFragment,
-  image: darkLightImageFragment,
-  categories: true,
-});
+export const blogpostCardFragment = {};
 
-type BlogpostCardFragment = fragmentOn.infer<typeof blogpostCardFragment>;
+type BlogpostCardFragment = any; // fragmentOn.infer<typeof blogpostCardFragment>;
 type BlogPostCard = {
   type?: "card" | "list";
   className?: string;

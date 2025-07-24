@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { CheckIcon } from "@radix-ui/react-icons";
 import { type SVGProps } from "react";
 import clsx from "clsx";
@@ -5,33 +6,13 @@ import clsx from "clsx";
 import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
 import { ButtonLink } from "../../../common/button";
-import { fragmentOn } from "basehub";
 import { headingFragment } from "../../../lib/types/static-types";
 
 import s from "./pricing.module.css";
 
-export const pricingPlanItemFragment = fragmentOn("PlanComponent", {
-  plan: {
-    _id: true,
-    _title: true,
-    price: true,
-    billed: true,
-    isMostPopular: true,
-    list: {
-      items: {
-        _title: true,
-        _id: true,
-      },
-    },
-  },
-});
+export const pricingPlanItemFragment = {};
 
-export const pricingFragment = fragmentOn("PricingComponent", {
-  heading: headingFragment,
-  plans: {
-    items: pricingPlanItemFragment,
-  },
-});
+export const pricingFragment = {};
 
 type Pricing = fragmentOn.infer<typeof pricingFragment>;
 

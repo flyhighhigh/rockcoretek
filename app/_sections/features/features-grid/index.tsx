@@ -1,28 +1,11 @@
-import { BaseHubImage } from "basehub/next-image";
-
+import Image from 'next/image';
 import { Heading } from "../../../../common/heading";
 import { Section } from "../../../../common/section-wrapper";
-import { fragmentOn } from "basehub";
 import { buttonFragment, headingFragment } from "../../../../lib/types/static-types";
 import { TrackedButtonLink } from "../../../../components/tracked-button";
 import { GeneralEvents } from "../../../../lib/types/static-types";
 
-export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
-  _analyticsKey: true,
-  featuresGridList: {
-    items: {
-      _id: true,
-      _title: true,
-      description: true,
-      icon: {
-        alt: true,
-        url: true,
-      },
-    },
-  },
-  heading: headingFragment,
-  actions: buttonFragment,
-});
+export const featuresGridFragment = {};
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;
 
@@ -44,7 +27,7 @@ export function FeaturesGrid({
             className="flex flex-col gap-4 rounded-lg border border-[--border] p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-[--dark-border] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
           >
             <figure className="flex size-9 items-center justify-center rounded-full border border-[--border] bg-[--surface-secondary] p-2 dark:border-[--dark-border] dark:bg-[--dark-surface-secondary]">
-              <BaseHubImage
+              <Image
                 alt={icon.alt ?? _title}
                 className="dark:invert"
                 height={18}

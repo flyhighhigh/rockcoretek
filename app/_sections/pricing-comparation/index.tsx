@@ -6,13 +6,12 @@ import clsx from "clsx";
 import { Heading } from "../../../common/heading";
 import { Section } from "../../../common/section-wrapper";
 import { ButtonLink } from "../../../common/button";
-import { type fragmentOn } from "basehub";
 import { SimpleTooltip } from "../../../common/tooltip";
 
 import { MobilePricingComparison } from "./mobile-pricing-comparison";
 import { type planFragment, type pricingTableFragment, type valueFragment } from "./fragments";
 
-export type PricingTableProps = fragmentOn.infer<typeof pricingTableFragment>;
+export type PricingTableProps = any; // fragmentOn.infer<typeof pricingTableFragment>;
 
 export function PricingTable(props: PricingTableProps) {
   const { heading, categories } = props;
@@ -159,7 +158,7 @@ function CategoryHeader({
 
 /* --------------------------------- Plan Header --------------------------------- */
 
-type ValueFragment = fragmentOn.infer<typeof valueFragment>;
+type ValueFragment = any; // fragmentOn.infer<typeof valueFragment>;
 
 function PlanHeader({ plan }: { plan: PlanFragment | null }) {
   return plan ? (
@@ -211,7 +210,7 @@ function FeatureValue({ value }: { value?: ValueFragment }) {
 /*                                    Utils                                   */
 /* -------------------------------------------------------------------------- */
 
-export type PlanFragment = fragmentOn.infer<typeof planFragment>;
+export type PlanFragment = any; // fragmentOn.infer<typeof planFragment>;
 
 const extractPlans = (categories: PricingTableProps["categories"]) => {
   const plans = new Map<string, PlanFragment>();
