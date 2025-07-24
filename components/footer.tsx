@@ -49,7 +49,13 @@ export function Footer({ footer, logo }: any) {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <Image src="/rockcore-logo.png" alt="RockCore" width={40} height={40} className="h-10 w-auto" />
+              <Image
+                src="/rockcore-logo.png"
+                alt="RockCore"
+                width={80}
+                height={80}
+                className="h-10 w-auto"
+              />
               <span className="text-xl font-bold">RockCore</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">

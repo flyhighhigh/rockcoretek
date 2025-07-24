@@ -26,7 +26,13 @@ export function Header({ logo, header }: any) {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3">
-              <Image src="/rockcore-logo.png" alt="RockCore" width={40} height={40} className="h-10 w-auto" />
+              <Image
+                src="/rockcore-logo.png"
+                alt="RockCore"
+                width={80}
+                height={80}
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 
