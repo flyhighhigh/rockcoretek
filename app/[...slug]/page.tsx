@@ -25,52 +25,29 @@ import {
   settingsLogoLiteFragment,
   SettingsLogoLiteFragment,
 } from "../../components/form-components";
-
 export const dynamic = "force-static";
 export const revalidate = 30;
 
 export const generateStaticParams = async () => {
-  // Return empty array for now since we don't have static page data
+  // 沒有要輸出任何 slug 頁面
   return [];
 };
 
 export const generateMetadata = async ({
-  params: _params,
+  params,
 }: {
-  params: Promise<{ slug?: string[] }>;
+  params: { slug?: string[] };
 }): Promise<Metadata | undefined> => {
-  const params = await _params;
-  
-  // Return default metadata since we don't have dynamic pages
   return {
     title: "RockCore Solutions",
     description: "Industrial computing solutions for harsh environments",
   };
 };
 
-// Commented out SectionsUnion to avoid build issues
-// function SectionsUnion({
-//   sections,
-//   eventsKey,
-//   settings,
-// }: {
-//   sections: any[];
-//   eventsKey: GeneralEvents["ingestKey"];
-//   settings: SettingsLogoLiteFragment;
-// }): React.ReactNode {
-//   if (!sections) return null;
-//   return null;
-// }
-
-// const sectionsFragment = { sections: [] };
-
 export default async function DynamicPage({
-  params: _params,
+  params,
 }: {
-  params: Promise<{ slug?: string[] }>;
+  params: { slug?: string[] };
 }) {
-  const params = await _params;
-  
-  // For now, just return a simple 404 since we don't have dynamic pages
   return notFound();
 }
