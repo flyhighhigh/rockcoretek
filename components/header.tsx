@@ -27,7 +27,7 @@ export function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3">
               <Image
-                src="/rockcore-logo.png"
+                src="./rockcore-logo.png"
                 alt="RockCore"
                 width={80}
                 height={80}

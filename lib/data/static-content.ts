@@ -161,7 +161,7 @@ export const staticChangelogPosts = [
 // Site settings
 export const siteSettings = {
   logo: {
-    url: "/rockcore-logo.png",
+    url: "./rockcore-logo.png",
     alt: "RockCore"
   },
   generalEvents: {

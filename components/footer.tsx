@@ -50,7 +50,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <Image
-                src="/rockcore-logo.png"
+                src="./rockcore-logo.png"
                 alt="RockCore"
                 width={80}
                 height={80}
