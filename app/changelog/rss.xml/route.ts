@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { siteUrl } from "../../../lib/constants";
 export async function GET() {
   // Static data - basehub dependency removed
